@@ -59,7 +59,6 @@
 (package! zoom-window)
 (package! iedit)
 (package! ace-jump-mode)
-(package! multiple-cursors)
 (package! carbon-now-sh)
 (package! grip-mode)
 (package! general)
