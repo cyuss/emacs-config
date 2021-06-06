@@ -53,6 +53,10 @@
 (package! elpy)
 (package! poetry)
 (package! numpydoc)
+(package! devdocs)
+;; devops packages
+(package! k8s-mode)
+(package! kubernetes)
 ;; navigation related packages
 (package! all-the-icons-ivy-rich)
 (package! ivy-rich)
@@ -60,9 +64,11 @@
 (package! iedit)
 (package! ace-jump-mode)
 (package! carbon-now-sh)
-(package! grip-mode)
 (package! general)
 (package! discover-my-major)
 (package! ace-mc)
 (package! rainbow-identifiers)
 (package! comment-dwim-2)
+;; org related packages
+(package! org-fragtog)
+(package! org-ql)

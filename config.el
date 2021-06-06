@@ -21,7 +21,7 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "Iosevka SS07" :size 13)
+(setq doom-font (font-spec :family "Iosevka SS07" :size 15)
       doom-unicode-font (font-spec :family "Hack Nerd Font"))
 ;;(setq doom-unicode-font "MesloLGS NF")
 ;; (setq doom-unicode-font (font-spec :family "Hack Nerd Font"))
@@ -94,7 +94,7 @@
 (use-package! zoom-window
   :config
   (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
-  (custom-set-variables '(zoom-window-mode-line-color "DarkCyan")))
+  (custom-set-variables '(zoom-window-mode-line-color "salmon4")))
 
 (use-package! iedit
   :diminish iedit-mode
@@ -125,7 +125,6 @@
   :after python
   :init
   (advice-add 'python-mode :before 'elpy-enable)
-  ;; (setq-default elpy-company-post-completion-function 'elpy-company-post-complete-parens)
   (add-hook 'python-mode-hook (lambda ()
                                 (flymake-mode -1)
                                 (flycheck-mode -1)
@@ -140,3 +139,11 @@
 (use-package! comment-dwim-2
   :bind ("C-," . comment-dwim-2)
   :config (setq comment-dwim-2--inline-comment-behavior 'reindent-comment))
+
+;; org related config
+(custom-set-variables ;; show logbook drawer for historical logs
+ '(org-log-into-drawer t))
+
+(use-package! org-fragtog
+  :after org
+  :hook (org-mode . org-fragtog-mode))
