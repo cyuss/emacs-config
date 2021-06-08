@@ -50,8 +50,8 @@
 ;(unpin! t)
 
 ;; python related packages
-(package! elpy)
-(package! poetry)
+;; (package! elpy)
+;; (package! poetry)
 (package! numpydoc)
 (package! devdocs)
 ;; devops packages

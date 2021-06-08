@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Youcef Maâmra"
+(setq user-full-name "Youcef"
       user-mail-address "maamra.youcef@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -40,6 +40,14 @@
 (setq mac-option-modifier nil)
 ;; Start maximised (cross-platf)
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
+;; org related config
+(custom-set-variables ;; show logbook drawer for historical logs
+ '(org-log-into-drawer t))
+;; python related conf
+(setq-default poetry-tracking-strategy 'projectile)
+(add-hook 'python-mode-hook (lambda ()
+                              (flymake-mode -1)
+                              (flycheck-mode -1)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -121,28 +129,24 @@
   (add-hook 'python-mode-hook 'rainbow-identifiers-mode)
    (setq rainbow-identifiers-choose-face-function 'rainbow-identifiers-cie-l*a*b*-choose-face))
 
-(use-package! elpy
-  :after python
-  :init
-  (advice-add 'python-mode :before 'elpy-enable)
-  (add-hook 'python-mode-hook (lambda ()
-                                (flymake-mode -1)
-                                (flycheck-mode -1)
-                                (poetry-tracking-mode)
-                                (highlight-indentation-mode -1))))
+;; (use-package! elpy
+;;   :after python
+;;   :init
+;;   (advice-add 'python-mode :before 'elpy-enable)
+;;   (add-hook 'python-mode-hook (lambda ()
+;;                                 (flymake-mode -1)
+;;                                 (flycheck-mode -1)
+;;                                 (poetry-tracking-mode)
+;;                                 (highlight-indentation-mode -1))))
 
-(use-package! poetry
-  :after python
-  :init
-  (setq-default poetry-tracking-strategy 'projectile))
+;; (use-package! poetry
+;;   :after python
+;;   :init
+;;   (setq-default poetry-tracking-strategy 'projectile))
 
 (use-package! comment-dwim-2
   :bind ("C-," . comment-dwim-2)
   :config (setq comment-dwim-2--inline-comment-behavior 'reindent-comment))
-
-;; org related config
-(custom-set-variables ;; show logbook drawer for historical logs
- '(org-log-into-drawer t))
 
 (use-package! org-fragtog
   :after org
