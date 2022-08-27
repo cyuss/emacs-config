@@ -58,6 +58,7 @@
 (package! k8s-mode)
 (package! kubernetes)
 ;; navigation related packages
+;; (package! treemacs-all-the-icons)
 (package! all-the-icons-ivy-rich)
 (package! ivy-rich)
 (package! zoom-window)
@@ -67,8 +68,24 @@
 (package! general)
 (package! discover-my-major)
 (package! ace-mc)
-(package! rainbow-identifiers)
+(package! zoom)
+(package! color-identifiers-mode)
+;; (package! rainbow-identifiers)
 (package! comment-dwim-2)
 ;; org related packages
+(unpin! org-roam)
+(package! org-roam-ui)
 (package! org-fragtog)
 (package! org-ql)
+(package! org-ref)
+(package! org-fancy-priorities)
+(package! org-edna)
+(package! svg-lib)
+(package! citar)
+(package! svg-tag-mode)
+;; theme related packages
+;; (package! uwu-theme
+;;   :recipe (:host github :repo "kborling/uwu-theme.el"))
+;; productivity related config
+(package! focus)
+(package! info-colors)
